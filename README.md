@@ -87,7 +87,7 @@ library(ggplot2)
 library(PeruData)
 fst_plot <- \(.map, .titl){
   ggplot(.map) +
-    geom_sf(fill = "gray60") +
+    geom_sf(fill = "white") +
     theme_void() +
     labs(title = {{.titl}}) +
     theme(
@@ -103,14 +103,14 @@ prov <- fst_plot(map_peru_prov, "Provincias")
 dist <- fst_plot(map_peru_dist, "Distritos")
 ```
 
+</details>
+
 ``` r
 library(patchwork)
 dist + (prov / depa)
 ```
 
 ![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
-
-</details>
 
 # Instituo Geofisico del Peru (IGP)
 
