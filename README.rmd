@@ -1,0 +1,89 @@
+---
+title: PeruData
+output: github_document
+---
+
+Datos de diferentes fuentes dentro del Perú
+
+
+# Datos espaciales (`map_peru_*`)
+
+```{r}
+library(sf)
+```
+
+## Departamentos
+
+```{r}
+head(PeruData::map_peru_depa)
+```
+
+## Provincias
+
+```{r}
+head(PeruData::map_peru_prov)
+```
+
+## Distritos
+
+```{r}
+head(PeruData::map_peru_dist)
+```
+
+## Plots
+
+<details>
+    <summary>Mostrar codigo</summary>
+
+```{r}
+library(ggplot2)
+library(PeruData)
+fst_plot <- \(.map, .titl){
+  ggplot(.map) +
+    geom_sf(fill = "gray60") +
+    theme_void() +
+    labs(title = {{.titl}}) +
+    theme(
+      axis.text.x = element_blank()
+      , axis.text.y = element_blank()
+      )
+}
+```
+
+
+```{r}
+depa <- fst_plot(map_peru_depa, "Departamentos")
+prov <- fst_plot(map_peru_prov, "Provincias")
+dist <- fst_plot(map_peru_dist, "Distritos")
+```
+</details>
+
+```{r}
+library(patchwork)
+dist + (prov / depa)
+```
+
+
+
+
+# Instituo Geofisico del Peru (IGP)
+
+```{r}
+head(PeruData::igp)
+```
+
+# Inei
+
+## Enaho
+
+```{r, eval = F}
+anios <- c("2020", "2019", "2004")
+modulos <- c("01", "02", "04")
+PeruData::inei_enaho(modulos, anios)
+```
+
+```{r}
+fs::dir_tree('enaho/solo-data')
+```
+
+
