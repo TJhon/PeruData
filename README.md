@@ -155,3 +155,11 @@ fs::dir_tree('enaho/solo-data')
     ##     +-- enaho_2004.dta
     ##     +-- enaho_2019.dta
     ##     \-- enaho_2020.dta
+
+# Uso
+
+``` r
+#install.packages("remotes")
+remotes::install_github('TJhon/PeruData')
+library(PeruData)
+```

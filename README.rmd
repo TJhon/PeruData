@@ -86,4 +86,11 @@ PeruData::inei_enaho(modulos, anios)
 fs::dir_tree('enaho/solo-data')
 ```
 
+# Uso
+
+```{r, eval = F}
+#install.packages("remotes")
+remotes::install_github('TJhon/PeruData')
+library(PeruData)
+```
 
