@@ -15,4 +15,5 @@ dir_files <- function(.data,.mod, .mod_len){
         purrr::map(~rep(.x, .mod_len)) |>
         purrr::map(~here::here(.x, glue::glue('modulo {.mod}'))) |>
         purrr::walk(~try(fs::dir_create(.x)))
+    print("Folders created")
 }

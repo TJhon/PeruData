@@ -52,8 +52,9 @@ inei_enaho <- function(
     to_unzip <- dplyr::pull(all_directories, to_unzip)
 
     ## download and unzip
-
+    print("Downloading ...")
     purrr::walk2(.x = to_link, .y = to_down, ~try(download.file(.x, .y, quiet = T)))
+    print("Unzip files ...")
     purrr::walk2(to_down, to_unzip, ~unzip(.x, exdir = .y))
 
     data_files <-
@@ -79,9 +80,10 @@ inei_enaho <- function(
         dplyr::relocate(full_path, .after = year)
     move_file <- dplyr::pull(data_files, full_path)
     move_to <- dplyr::pull(data_files, new_name)
-
+    print('Moving relevant files to "solo-data"')
     purrr::walk2(move_file, move_to, fs::file_move)
-
+    print("-- End --")
+    message("You can see the files via `fs::dir_tree('enaho')`")
 }
 
 
