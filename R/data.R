@@ -4,7 +4,6 @@
 
 #' ENAHO
 #' ENAHO new names
-
 'enaho_rename'
 
 #' INEI diccionario

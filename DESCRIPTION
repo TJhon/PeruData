@@ -22,7 +22,8 @@ Imports:
     plyr,
     magrittr,
     readr,
-    stringi
+    stringi,
+    tidyselect
 Depends: 
     R (>= 4.1.0)
 LazyData: true

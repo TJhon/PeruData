@@ -102,13 +102,20 @@ inei_enaho <- function(
 enaho_clean <- function(.enaho_data){
     .enaho_data |>
         janitor::clean_names() |>
+        dplyr::mutate(
+            ubigeo = ifelse(stringr::str_length(ubigeo) == 5, paste0("0", ubigeo), ubigeo)
+        ) |>
         dplyr::left_join(ubigeo_peru) |>
         plyr::rename(
             replace = enaho_rename
             , warn_missing = F
         ) |>
         dplyr::rename_with(tidy_text) |>
-        dplyr::mutate(dplyr::across(dplyr::contains("p20"), as.numeric))
+        dplyr::mutate(
+            dplyr::across(dplyr::contains("p20"), as.numeric)
+            , dplyr::across(tidyselect:::where(is.character), tidy_text)
+            , dplyr::across(tidyselect:::where(is.numeric), as.character)
+            )
 }
 
 

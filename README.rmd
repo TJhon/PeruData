@@ -52,9 +52,9 @@ fst_plot <- \(.map, .titl){
 
 
 ```{r}
-depa <- fst_plot(map_peru_depa, "Departamentos")
-prov <- fst_plot(map_peru_prov, "Provincias")
-dist <- fst_plot(map_peru_dist, "Distritos")
+depa <- fst_plot(map_peru_depa |> tmaptools::get_asp_ratio(), "Departamentos")
+prov <- fst_plot(map_peru_prov |> tmaptools::get_asp_ratio(), "Provincias")
+dist <- fst_plot(map_peru_dist |> tmaptools::get_asp_ratio(), "Distritos")
 ```
 </details>
 

@@ -3,4 +3,7 @@
 ^data-raw$
 ^enaho$
 ^LICENSE\.md$
+^README\.rmd$
+^README_files$
 ^source-data
+
