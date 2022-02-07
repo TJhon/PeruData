@@ -1,5 +1,5 @@
 ---
-title: PeruData
+title: PeruData  <img src="figs/perudata.svg" align="right" width="120"/>
 output: github_document
 ---
 
@@ -8,9 +8,7 @@ Datos de diferentes fuentes dentro del Perú
 
 # Datos espaciales (`map_peru_*`)
 
-```{r}
-library(sf)
-```
+
 
 ## Departamentos
 
@@ -38,6 +36,7 @@ head(PeruData::map_peru_dist)
 ```{r}
 library(ggplot2)
 library(PeruData)
+library(sf)
 fst_plot <- \(.map, .titl){
   ggplot(.map) +
     geom_sf(fill = "white") +
@@ -52,9 +51,9 @@ fst_plot <- \(.map, .titl){
 
 
 ```{r}
-depa <- fst_plot(map_peru_depa |> tmaptools::get_asp_ratio(), "Departamentos")
-prov <- fst_plot(map_peru_prov |> tmaptools::get_asp_ratio(), "Provincias")
-dist <- fst_plot(map_peru_dist |> tmaptools::get_asp_ratio(), "Distritos")
+depa <- fst_plot(map_peru_depa, "Departamentos")
+prov <- fst_plot(map_peru_prov, "Provincias")
+dist <- fst_plot(map_peru_dist, "Distritos")
 ```
 </details>
 
