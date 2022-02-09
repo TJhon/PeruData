@@ -16,6 +16,10 @@
 
 'ubigeo_peru'
 
+#' Mapa del peru
+#' map_peru_depa: Peru nacional
+'map_peru_peru'
+
 #' Mapas del peru
 #' map_peru_depa: Departamentos
 'map_peru_depa'
