@@ -6,7 +6,7 @@
 \title{ENAHO
 ENAHO new names}
 \format{
-An object of class \code{character} of length 6.
+An object of class \code{character} of length 7.
 }
 \usage{
 enaho_rename

@@ -4,7 +4,6 @@ librarian::shelf(
     tidyverse
     , sf
 )
-rename_geo <- c("departamen" = "depa", "provincia" = "prov", "distrito" = "dist")
 
 zip_sf <- dir(here::here("source-data"), pattern = ".zip", recursive = T, full.names = T)
 

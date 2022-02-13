@@ -118,7 +118,7 @@ enaho_clean <- function(.enaho_data){
             , dplyr::across(tidyselect:::where(is.character), tidy_text)
             , dplyr::across(tidyselect:::where(is.numeric), as.character)
             ) |>
-        dplyr::relocate(tidyselect::any_of(c("depa", "prob", "dist"), .after = 'ubigeo'))
+        dplyr::relocate(tidyselect::any_of(c("depa", "prov", "dist")), .after = 'ubigeo')
 }
 
 

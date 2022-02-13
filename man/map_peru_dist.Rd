@@ -6,7 +6,7 @@
 \title{Mapas del peru
 map_peru_dist: Distrital}
 \format{
-An object of class \code{sf} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 1872 rows and 10 columns.
+An object of class \code{sf} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 1872 rows and 4 columns.
 }
 \usage{
 map_peru_dist

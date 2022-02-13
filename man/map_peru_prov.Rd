@@ -6,7 +6,7 @@
 \title{Mapas del peru
 map_peru_prov: Provincial}
 \format{
-An object of class \code{sf} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 196 rows and 6 columns.
+An object of class \code{sf} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 196 rows and 5 columns.
 }
 \usage{
 map_peru_prov

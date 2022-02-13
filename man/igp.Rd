@@ -5,7 +5,7 @@
 \alias{igp}
 \title{IGP data}
 \format{
-An object of class \code{spec_tbl_df} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 22767 rows and 7 columns.
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 22794 rows and 7 columns.
 }
 \usage{
 igp

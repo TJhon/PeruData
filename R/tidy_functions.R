@@ -26,8 +26,8 @@ tidy_text <- function(.x) {
 #' @export
 #'
 #' @examples
-#' library(PeruData)
-#' clean_sf(map_peru_dep)
+#' #library(PeruData)
+#' #clean_sf(map_peru_depa)
 clean_sf <- function(.sf, .simplify = T, keep = .05){
     if(.simplify) .sf <- rmapshaper::ms_simplify(.sf, keep = .05)
     sf <-
