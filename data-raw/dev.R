@@ -11,6 +11,6 @@ devtools::check()
 
 # usethis::use_data(dev, overwrite = TRUE)
 
-devtools::check()
+# devtools::check()
 
 devtools::build()

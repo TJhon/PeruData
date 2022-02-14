@@ -20,6 +20,6 @@ A clean sf data
 clean_sf
 }
 \examples{
-library(PeruData)
-clean_sf(map_peru_dep)
+#library(PeruData)
+#clean_sf(map_peru_depa)
 }
