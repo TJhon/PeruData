@@ -1,4 +1,4 @@
-PeruData <img src="figs/perudata-night.png" align="right" width="150"/>
+PeruData <img src="figs/PeruData-night.png" align="right" width="150"/>
 ================
 
 Carga, descarga y limpieza de datos de diferentes fuentes dentro del

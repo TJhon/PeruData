@@ -1,5 +1,5 @@
 ---
-title: PeruData  <img src="figs/perudata-night.png" align="right" width="150"/>
+title: PeruData  <img src="figs/PeruData-night.png" align="right" width="150"/>
 output: github_document
 ---
 
