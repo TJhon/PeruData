@@ -34,6 +34,8 @@ Datos:
 
 -   `igp`: Información de terremotos en el Perú
 -   `ubigeo_peru`: Ubigeo del Perú
+-   `covid_casos_fallecidos`: Datos de casos positivos de covid y fallecidos, por departamento, provincia, distrito, sexo y otros.
+-   `covid_link`: Links de las base de datos de covid en el Perú  
 
 # Funciones
 
@@ -57,6 +59,8 @@ Formato `*_*()`
 -   `inei_endes()`: Descarga y ordena los archivos principales (.csv,
     .sav) por modulos y años, en la siguiente direccion:
     “`endes/solo-data`”
+-   `covid_last_casos_fallecidos()`: Descarga la ultima actualizadion disponible de datos de covid para casos positivos y fallecidos por el covid y limpia la base de datos guardandola en una carpeta. 
+    - Ver `PeruData::covid_casos_fallecidos`
 
 ## Limpieza
 
@@ -105,7 +109,7 @@ Click para mostrar
 -   MINSA
     -   Covid
         -   Cargar datos
-        -   Actualizar datos (`julia-lang`)
+        -   Actualizar datos (`r` - `julia-lang`(menos recursos de la computadora) )
 -   MEF
     -   Consulta amigable, Python-selenium <span
         style="color:red">Error, not support to scrapping</span>.
