@@ -2,7 +2,7 @@
 % Please edit documentation in R/inei_enaho.R
 \name{enaho_clean}
 \alias{enaho_clean}
-\title{enaho_clean}
+\title{Clean datasets from ENAHO}
 \usage{
 enaho_clean(.enaho_data)
 }
@@ -13,10 +13,25 @@ enaho_clean(.enaho_data)
 Standard data cleaning
 }
 \description{
-enaho_clean
+Create a tidy data from ENAHO
+}
+\details{
+Clean data from ENAHO and prepare for a panel data
 }
 \examples{
-#enaho_2018 <- haven::read_dta("enaho/modulo 01/enaho_2018.dta")
+# library(tidyverse)
+library(PeruData)
+library(haven)
+
+years <- c("2010", "2019")
+mod <- c("01", "03", "05", "85")
+# inei_enaho(mod, years) #not run example
+
+
+#enaho_2018 <- haven::read_dta(here::here("enaho/modulo 01/enaho_2019.dta"))
 #enaho_2018 |>
 #    enaho_clean()
+}
+\author{
+Jhon Flores Rojas
 }

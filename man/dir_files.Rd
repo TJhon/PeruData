@@ -2,7 +2,7 @@
 % Please edit documentation in R/dir_files.R
 \name{dir_files}
 \alias{dir_files}
-\title{dir_files}
+\title{Create INEI folders}
 \usage{
 dir_files(.data, .mod, .mod_len)
 }
@@ -14,11 +14,14 @@ dir_files(.data, .mod, .mod_len)
 \item{.mod_len}{Number of modules or surveys}
 }
 \value{
-Folders created
+Folder for INEI database
 }
 \description{
-dir_files
+Create folders for INIE database
 }
 \examples{
-#dir_files("enaho", c("01", "02"), 2)
+dir_files("enaho", c("01", "02"), 2)
+}
+\author{
+Jhon Flores rojas
 }

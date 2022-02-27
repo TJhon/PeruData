@@ -3,6 +3,9 @@
 librarian::shelf(
     tidyverse
     , sf
+    , here
+    , raster
+    , PeruData
 )
 
 zip_sf <- dir(here::here("source-data"), pattern = ".zip", recursive = T, full.names = T)
@@ -47,10 +50,23 @@ map_peru_dist <- maps2[[2]]
 map_peru_depa <- maps2[[3]]
 map_peru_peru <- maps2[[4]]
 
+
+
+
 usethis::use_data(map_peru_dist, overwrite = TRUE)
 usethis::use_data(map_peru_prov, overwrite = TRUE)
 usethis::use_data(map_peru_depa, overwrite = TRUE)
 usethis::use_data(map_peru_peru, overwrite = TRUE)
 
+
+
+
 fs::dir_delete(here::here('source-data', "map", c("departamentos", "distritos", "provincias")))
+
+
+raster_peru_alt <-
+    dir(here::here(), pattern = "grd", full.names = T, recursive = T) |>
+    raster::raster()
+usethis::use_data(raster_peru_alt, overwrite = T)
+
 

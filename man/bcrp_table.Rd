@@ -2,16 +2,24 @@
 % Please edit documentation in R/bcrp-get.R
 \name{bcrp_table}
 \alias{bcrp_table}
-\title{Table from bcrp}
+\title{Table from bcrp data}
 \usage{
 bcrp_table(.html_locate)
 }
 \arguments{
-\item{.html_locate}{}
+\item{.html_locate}{Html file}
 }
 \value{
-
+Table from BCRP tables
 }
 \description{
-Table from bcrp
+Create a table from BCRP data
+}
+\seealso{
+\itemize{
+\item PeruData::bcrp_get()
+}
+}
+\author{
+Jhon Flores Rojas
 }

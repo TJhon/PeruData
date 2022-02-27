@@ -2,7 +2,7 @@
 % Please edit documentation in R/inei_enaho.R
 \name{inei_enaho}
 \alias{inei_enaho}
-\title{inei_enaho}
+\title{Download ENAHO from INEE database}
 \usage{
 inei_enaho(.mod, .year, .tp = "stata", .trash = c("tabla", "otro", "dic"))
 }
@@ -16,14 +16,21 @@ inei_enaho(.mod, .year, .tp = "stata", .trash = c("tabla", "otro", "dic"))
 \item{.trash}{Not relevant files}
 }
 \value{
-A "solo-data" forder with the database sorted
+A "solo-data" forder with datasets
 }
 \description{
-inei_enaho
+Download ENAHO datasets from INEI database
+}
+\details{
+Download data and sort into separate folders
 }
 \examples{
+#library(tidyverse)
 library(PeruData)
 years <- c("2010", "2019")
 mod <- c("01", "03", "05", "85")
-# inei_enaho(mod, years)
+# inei_enaho(mod, years) #not run example
+}
+\author{
+Jhon Flores Rojas
 }

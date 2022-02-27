@@ -1,19 +1,22 @@
-
-#' inei_enaho
-#'
+#' Download ENAHO from INEE database 
+#' 
+#' @author Jhon Flores Rojas
+#' @description Download ENAHO datasets from INEI database
+#' @details Download data and sort into separate folders 
 #' @param .mod Surveys (module) to download from the National Household Survey - Peru
 #' @param .year Years of surveyss to download
 #' @param .tp File extension `c("stata", "spss", "csv")` for years greater than 2019 csv is available
 #' @param .trash Not relevant files
 #'
-#' @return A "solo-data" forder with the database sorted
+#' @return A "solo-data" forder with datasets 
 #' @export
 #'
 #' @examples
+#' #library(tidyverse)
 #' library(PeruData)
 #' years <- c("2010", "2019")
 #' mod <- c("01", "03", "05", "85")
-#' # inei_enaho(mod, years)
+#' # inei_enaho(mod, years) #not run example
 inei_enaho <- function(
     .mod, .year, .tp = 'stata', .trash = c("tabla", "otro", "dic")
     ){
@@ -90,15 +93,27 @@ inei_enaho <- function(
 #fs::dir_delete(c('inei_down', 'inei_unzip', 'solo-data', 'transform_data'))
 
 
-#' enaho_clean
+#' Clean datasets from ENAHO
 #'
+#' @author Jhon Flores Rojas
+#' @description Create a tidy data from ENAHO
+#' @details Clean data from ENAHO and prepare for a panel data
 #' @param .enaho_data ENAHO database
 #'
 #' @return Standard data cleaning
 #' @export
 #'
 #' @examples
-#' #enaho_2018 <- haven::read_dta("enaho/modulo 01/enaho_2018.dta")
+#' # library(tidyverse)
+#' library(PeruData)
+#' library(haven)
+#' 
+#' years <- c("2010", "2019")
+#' mod <- c("01", "03", "05", "85")
+#' # inei_enaho(mod, years) #not run example
+#' 
+#' 
+#' #enaho_2018 <- haven::read_dta(here::here("enaho/modulo 01/enaho_2019.dta"))
 #' #enaho_2018 |>
 #' #    enaho_clean()
 enaho_clean <- function(.enaho_data){

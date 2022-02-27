@@ -5,5 +5,8 @@
 ^LICENSE\.md$
 ^README\.rmd$
 ^README_files$
+^README_cache$
 ^source-data
+^covid-data
+^figs
 

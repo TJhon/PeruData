@@ -2,16 +2,35 @@
 % Please edit documentation in R/inei_endes.R
 \name{inei_endes}
 \alias{inei_endes}
-\title{Download data from INEI survey ENDES}
+\title{Download ENDES from INEI database}
 \usage{
 inei_endes(.mod, .year, .tp = "spss")
 }
 \arguments{
-\item{.tp}{}
+\item{.mod}{Surveys (module) to download}
+
+\item{.year}{Year of surveys to downlaod}
+
+\item{.tp}{File extension default spss, not allowed (STATA files)}
 }
 \value{
-
+A "solo-data" forlder with datasets
 }
 \description{
-Download data from INEI survey ENDES
+Downlaod ENDES datasets from INEI database
+}
+\details{
+Download data and sort into separate folder
+}
+\examples{
+#library(tidyverse)
+library(PeruData)
+
+modulos <- c("64", "65")
+anios <- c("2015", "2004", "2019")
+#unlink('endes', recursive = T)
+#inei_endes(modulos, anios)
+}
+\author{
+Jhon Flores Rojas
 }

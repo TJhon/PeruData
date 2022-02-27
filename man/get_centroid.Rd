@@ -2,7 +2,7 @@
 % Please edit documentation in R/tidy_functions.R
 \name{get_centroid}
 \alias{get_centroid}
-\title{get_centroid}
+\title{Get centroid from a sf object}
 \usage{
 get_centroid(.sf)
 }
@@ -13,11 +13,17 @@ get_centroid(.sf)
 X Y columns with centroid
 }
 \description{
-get_centroid
+Add columns from a sf object with centroids (x, y).
+}
+\details{
+Create and add the coordinates (x, y) of the centroids to the dataframe
 }
 \examples{
 library(PeruData)
 #map_peru_dist |>
 #  filter(depa == "huanuco") |>
 #   get_centroid()
+}
+\author{
+Jhon Flores Rojas
 }

@@ -1,21 +1,3 @@
-#' tidy_text
-#'
-#' @param .x A vector of type character
-#'
-#' @return Cleaning data from a vector or columns, removing unnecessary spaces or special characters
-#' @export
-#'
-#' @examples
-#' dirty <- c("    a ", "universo  ", "íóñ")
-#' tidy_text(dirty)
-tidy_text <- function(.x) {
-    .x |>
-        stringr::str_to_lower() |>
-        stringr::str_trim() |>
-        stringi::stri_trans_general("Latin-ASCII")
-}
-
-
 #' clean_sf
 #'
 #' @param .sf A sf object
@@ -26,23 +8,29 @@ tidy_text <- function(.x) {
 #' @export
 #'
 #' @examples
-#' #library(PeruData)
+#' library(PeruData)
 #' #clean_sf(map_peru_depa)
 clean_sf <- function(.sf, .simplify = T, keep = .05){
     if(.simplify) .sf <- rmapshaper::ms_simplify(.sf, keep = .05)
     sf <-
         .sf |>
         # rmapshaper::ms_simplify() |>
-        rename_with(tidy_text) |>
-        select(!contains('id')) |>
-        select(!any_of(c("codccpp", "area", "fuente", "capital"))) |>
+        dplyr::rename_with(tidy_text) |>
+        dplyr::select(!dplyr::contains('id')) |>
+        dplyr::select(!dplyr::any_of(c("codccpp", "area", "fuente", "capital"))) |>
         plyr::rename(rename_geo, warn_missing = F) |>
-        mutate(across(where(is.character), tidy_text))
+        dplyr::mutate(dplyr::across(tidyselect:::where(is.character), tidy_text))
     return(sf)
 }
 
 
-#' get_centroid
+#' Get centroid from a sf object
+#'
+#' @author Jhon Flores Rojas
+#'
+#' @details Create and add the coordinates (x, y) of the centroids to the dataframe
+#'
+#' @description Add columns from a sf object with centroids (x, y).
 #'
 #' @param .sf A sf object
 #'
@@ -55,11 +43,38 @@ clean_sf <- function(.sf, .simplify = T, keep = .05){
 #' #  filter(depa == "huanuco") |>
 #' #   get_centroid()
 get_centroid <- function(.sf){
-    sf_c <- st_centroid(.sf)
+    sf_c <- sf::st_centroid(.sf)
     .sf |>
-        bind_cols(
-            x_center = st_coordinates(sf_c)[, 1]
-            ,y_center = st_coordinates(sf_c)[, 2]
+        dplyr::bind_cols(
+            x_center = sf::st_coordinates(sf_c)[, 1]
+            ,y_center = sf::st_coordinates(sf_c)[, 2]
         ) |>
-        relocate(x_center, y_center, .before = geometry)
+        dplyr::relocate(x_center, y_center, .before = geometry)
+}
+
+#' Tidy format for text
+#'
+#' @author Jhon Flores Rojas
+#'
+#' @description Tidy a text of special characters.
+#'
+#' @details Convert text into a tidy format
+#'
+#' @param .x Vector of characters
+#'
+#' @return Clean vector of characters
+#' @export
+#'
+#' @examples
+#' library(stringr)
+#' #library('tidyverse')
+#' library(PeruData)
+#'
+#' dirty <- c("    a ", "universo  ", "íóñ")
+#' tidy_text(dirty)
+tidy_text <- function(.x){
+    .x |>
+        stringr::str_to_lower() |>
+        stringr::str_trim() |>
+        stringi::stri_trans_general("Latin-ASCII")
 }

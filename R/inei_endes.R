@@ -1,15 +1,23 @@
-
-
-#' Download data from INEI survey ENDES
+#' Download ENDES from INEI database
 #'
-#' @param .mod
-#' @param .year
-#' @param .tp
+#' @author Jhon Flores Rojas
+#' @description Downlaod ENDES datasets from INEI database
+#' @details Download data and sort into separate folder
+#' @param .mod Surveys (module) to download
+#' @param .year Year of surveys to downlaod
+#' @param .tp File extension default spss, not allowed (STATA files)
 #'
-#' @return
+#' @return A "solo-data" forlder with datasets
 #' @export
 #'
-#' @examples
+#' @examples 
+#' #library(tidyverse)
+#' library(PeruData)
+#' 
+#' modulos <- c("64", "65")
+#' anios <- c("2015", "2004", "2019")
+#' #unlink('endes', recursive = T)
+#' #inei_endes(modulos, anios)
 inei_endes <- function(
     .mod, .year, .tp = 'spss'#, .trash = c("tabla", "otro", "dic")
 ){
@@ -92,9 +100,4 @@ inei_endes <- function(
     message("See the files with `fs::dir_tree('enaho)'")
 }
 #
-# modulos <- c("64", "65")
-# anios <- c("2015", "2004", "2019")
-# unlink('endes', recursive = T)
-#
-# inei_endes(modulos, anios)
 #

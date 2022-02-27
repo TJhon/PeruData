@@ -2,20 +2,30 @@
 % Please edit documentation in R/tidy_functions.R
 \name{tidy_text}
 \alias{tidy_text}
-\title{tidy_text}
+\title{Tidy format for text}
 \usage{
 tidy_text(.x)
 }
 \arguments{
-\item{.x}{A vector of type character}
+\item{.x}{Vector of characters}
 }
 \value{
-Cleaning data from a vector or columns, removing unnecessary spaces or special characters
+Clean vector of characters
 }
 \description{
-tidy_text
+Tidy a text of special characters.
+}
+\details{
+Convert text into a tidy format
 }
 \examples{
+library(stringr)
+#library('tidyverse')
+library(PeruData)
+
 dirty <- c("    a ", "universo  ", "íóñ")
 tidy_text(dirty)
+}
+\author{
+Jhon Flores Rojas
 }

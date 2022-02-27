@@ -7,11 +7,29 @@
 bcrp_get(.link = NULL)
 }
 \arguments{
-\item{.link}{}
+\item{.link}{Url from https://estadisticas.bcrp.gob.pe/estadisticas/series/}
 }
 \value{
-
+A list with data from BCRP links
 }
 \description{
-Get data BCRP by link
+Create a tibble from BCRP data
+}
+\details{
+Read table from links of BCRP data, and convert into tibbles.
+}
+\examples{
+library(rvest)
+library(purrr)
+library(PeruData)
+
+down_load <- c(
+ "https://estadisticas.bcrp.gob.pe/estadisticas/series/mensuales/resultados/PN01270PM/html"
+, "https://estadisticas.bcrp.gob.pe/estadisticas/series/mensuales/resultados/PN01308PM/html"
+)
+dfs <- bcrp_get(down_load)
+dfs
+}
+\author{
+Jhon Flores Rojas
 }

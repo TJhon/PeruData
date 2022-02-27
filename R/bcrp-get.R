@@ -1,28 +1,43 @@
-
-#' Table from bcrp
+#' Table from bcrp data
+#' @author Jhon Flores Rojas
+#' @description Create a table from BCRP data
 #'
-#' @param .html_locate
+#' @param .html_locate Html file
+#' @seealso
+#' * PeruData::bcrp_get()
 #'
-#' @return
+#' @return Table from BCRP tables
 #' @export
 #'
-#' @examples
 bcrp_table <- function(.html_locate) {
     .html_locate |>
-        html_element(css = '.series') |>
-        html_table() |>
+        rvest::html_element(css = '.series') |>
+        rvest::html_table() |>
         janitor::clean_names()
 }
 
 
 #' Get data BCRP by link
 #'
-#' @param .link
+#' @author Jhon Flores Rojas
+#' @description Create a tibble from BCRP data
+#' @details Read table from links of BCRP data, and convert into tibbles.
+#' @param .link Url from https://estadisticas.bcrp.gob.pe/estadisticas/series/
 #'
-#' @return
+#' @return A list with data from BCRP links
 #' @export
 #'
 #' @examples
+#' library(rvest)
+#' library(purrr)
+#' library(PeruData)
+#'
+#' down_load <- c(
+#'  "https://estadisticas.bcrp.gob.pe/estadisticas/series/mensuales/resultados/PN01270PM/html"
+#' , "https://estadisticas.bcrp.gob.pe/estadisticas/series/mensuales/resultados/PN01308PM/html"
+#' )
+#' dfs <- bcrp_get(down_load)
+#' dfs
 bcrp_get <- function(.link = NULL){#.period, .cod, ){
     # .p <- tidy_text(.period)
     # .pp <- c()
@@ -31,7 +46,7 @@ bcrp_get <- function(.link = NULL){#.period, .cod, ){
     #         .pp <- 'mensuales' else if(.p == 'd')
     #             .pp <- 'diarias' else "Not support"
     # glue("https://estadisticas.bcrp.gob.pe/estadisticas/series/{.pp}")
-    print("Getting data ...")
-    bcrp_data <- map(.link , read_html)
-    bcrp_data |> map(bcrp_table)
+    message("Getting data ...")
+    bcrp_data <- purrr::map(.link , rvest::read_html)
+    bcrp_data |> purrr::map(bcrp_table)
 }
