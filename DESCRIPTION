@@ -1,6 +1,6 @@
 Package: PeruData
 Title: Download and get data from Peru.
-Version: 1.2.2.0011
+Version: 0.0.2.0011
 Authors@R: 
     person("Jhon", "Flores", , "fr.jhonk@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
